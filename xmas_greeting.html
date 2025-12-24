@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 Happy Holidays! 🎄</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #FFD700;
+            --minion-yellow: #F8E71C;
+            --minion-blue: #1A237E;
+            --minion-grey: #5D5D5D;
+            --christmas-red: #FF3366;
+            --christmas-green: #2ECC71;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --radius: 20px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c2461, #1a237e);
+            color: var(--white);
+            min-height: 100vh;
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        .title-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .main-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 5rem;
+            color: var(--minion-yellow);
+            text-shadow: 5px 5px 0 var(--christmas-red),
+                         10px 10px 0 rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        
+        .subtitle {
+            font-size: 2rem;
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .subtitle:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, var(--christmas-red), var(--minion-yellow), var(--christmas-green));
+            border-radius: 2px;
+        }
+
+        .santa-emoji {
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 40px;
+            animation: santaBounce 2s infinite alternate;
+            text-shadow: 0 0 20px rgba(255, 51, 102, 0.6);
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+        
+        @keyframes santaBounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+        
+        /* Main Content */
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Video Section */
+        .video-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--minion-yellow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: var(--minion-yellow);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .video-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
+        }
+        
+        #minionVideo {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+        
+        /* Snowflakes */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .snowflake {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation-name: snowFall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        
+        /* Main snowflake animation */
+        @keyframes snowFall {
+            0% {
+                transform: translateY(-100px) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(var(--randomX)) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Additional animations */
+        @keyframes snowFall2 {
+            0% {
+                transform: translateY(-100px) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) translateX(var(--randomX)) rotate(180deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes snowFall3 {
+            0% {
+                transform: translateY(-100px) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(100vh) translateX(var(--randomX)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-text {
+            font-size: 1.5rem;
+            color: var(--minion-yellow);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .minion-signature {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: white;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--minion-yellow), var(--christmas-green), var(--christmas-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        /* Peeking Jose-Chan */
+        .peeking-jose {
+            position: fixed;
+            bottom: 0;
+            width: 100px;
+            height: auto;
+            opacity: 0.9;
+            z-index: 2;
+            animation: peek 3s ease-in-out infinite;
+        }
+        
+        .peeking-jose.left {
+            left: -50px;
+            transform: scaleX(1);
+        }
+        
+        .peeking-jose.right {
+            right: -40px;
+            transform: scaleX(-1);
+        }
+        
+        @keyframes peek {
+            0%, 100% {
+                opacity: 0;
+                transform: translateX(0) translateY(0);
+            }
+            25%, 50% {
+                opacity: 0.9;
+                transform: translateX(20px) translateY(-20px);
+            }
+            75% {
+                opacity: 0;
+                transform: translateX(0) translateY(0);
+            }
+        }
+        
+        .peeking-jose.right {
+            animation: peekRight 3s ease-in-out infinite;
+        }
+        
+        @keyframes peekRight {
+            0%, 25% {
+                opacity: 0;
+                transform: scaleX(-1) translateX(0) translateY(0);
+            }
+            50%, 75% {
+                opacity: 0.9;
+                transform: scaleX(-1) translateX(20px) translateY(-20px);
+            }
+            100% {
+                opacity: 0;
+                transform: scaleX(-1) translateX(0) translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .control-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.4rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .video-section {
+                padding: 20px;
+                margin-bottom: 30px;
+                border: 4px solid var(--minion-yellow);
+            }
+            
+            .video-container {
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+            
+            #minionVideo {
+                border-radius: 12px;
+            }
+            
+            .peeking-jose {
+                width: 60px;
+            }
+            
+            .peeking-jose.left {
+                left: -30px;
+            }
+            
+            .peeking-jose.right {
+                right: -25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Snowflakes Container -->
+    <div class="snowflakes" id="snowflakes"></div>
+    
+    <!-- Peeking Jose-Chan -->
+    <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose left">
+    <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose right">
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="title-container">
+                <h1 class="main-title">🎄 MERRY CHRISTMAS! 🎄</h1>
+                <div class="subtitle">🎆 & Happy New Year! 🎆</div>
+            </div>
+            
+            <!-- <div class="santa-emoji">🎅🎅🎅🎅🎅</div> -->
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Video Section -->
+            <section class="video-section">
+                <div class="video-container">
+                    <video id="minionVideo" preload="metadata" autoplay loop muted playsinline>
+                        <source src="assets/Minion-Xmas.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <div class="santa-emoji">🎅🎅🎅🎅🎅</div>
+        </main>
+    </div>
+
+    <script>
+        // Create snowflakes - FIXED VERSION
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            const snowflakeCount = 80; // Increased count for better effect
+            
+            // Clear any existing snowflakes
+            snowflakesContainer.innerHTML = '';
+            
+            // Pre-define animation types
+            const animationTypes = ['snowFall', 'snowFall2', 'snowFall3'];
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // Random size between 2 and 10px
+                const size = Math.random() * 8 + 2;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                
+                // Random position
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                
+                // Random animation duration
+                const duration = Math.random() * 8 + 5;
+                
+                // Random horizontal movement
+                const horizontal = Math.random() * 100 - 50;
+                
+                // Set CSS custom property for horizontal movement
+                snowflake.style.setProperty('--randomX', `${horizontal}px`);
+                
+                // Random animation type
+                const animationType = animationTypes[Math.floor(Math.random() * animationTypes.length)];
+                snowflake.style.animationName = animationType;
+                snowflake.style.animationDuration = `${duration}s`;
+                
+                // Random animation delay
+                snowflake.style.animationDelay = `${Math.random() * 10}s`;
+                
+                // Random opacity
+                snowflake.style.opacity = `${Math.random() * 0.7 + 0.3}`;
+                
+                // Random blur for some snowflakes
+                if (Math.random() > 0.7) {
+                    snowflake.style.filter = 'blur(1px)';
+                }
+                
+                snowflakesContainer.appendChild(snowflake);
+            }
+        }
+        
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#FFD700', '#FF3366', '#2ECC71', '#1A237E', '#FFFFFF'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '2';
+                
+                // Random color
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Random position
+                confetti.style.left = `${Math.random() * 100}vw`;
+                confetti.style.top = `-20px`;
+                
+                // Random size
+                const size = Math.random() * 15 + 5;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                
+                // Random shape
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                } else {
+                    confetti.style.borderRadius = '0';
+                }
+                
+                // Random animation
+                const duration = Math.random() * 3 + 2;
+                const rotation = Math.random() * 720;
+                const horizontal = Math.random() * 200 - 100;
+                const animationName = `confettiFall${i}`;
+                
+                // Create animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes ${animationName} {
+                        0% {
+                            transform: translateY(0) rotate(0deg);
+                            opacity: 1;
+                        }
+                        100% {
+                            transform: translateY(100vh) translateX(${horizontal}px) rotate(${rotation}deg);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                confetti.style.animation = `${animationName} ${duration}s linear forwards`;
+                
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.remove();
+                    }
+                }, duration * 1000);
+            }
+        }
+        
+        // Create snowflakes when page loads
+        window.addEventListener('load', function() {
+            createSnowflakes();
+            
+            // Animate title on load
+            const title = document.querySelector('.main-title');
+            title.style.animation = 'none';
+            setTimeout(() => {
+                title.style.animation = 'bounce 2s infinite alternate';
+            }, 10);
+            
+            // Add click event to create confetti
+            document.addEventListener('click', function() {
+                createConfetti();
+            });
+            
+            // Auto-create confetti every 30 seconds
+            setInterval(createConfetti, 30000);
+        });
+        
+        // Recreate snowflakes if window is resized
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(createSnowflakes, 250);
+        });
+        
+        // Add keypress event for spacebar to create confetti
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                createConfetti();
+            }
+        });
+        
+        // Add a simple greeting in console
+        console.log("🎄 Merry Christmas! 🎅");
+        console.log("❄️ Snowflakes are falling! ❄️");
+        console.log("Click anywhere or press SPACE for confetti!");
+    </script>
+</body>
+</html>
