@@ -106,13 +106,6 @@
             50% { transform: translateY(-30px) rotate(5deg); }
         }
         
-        /* Main Content */
-        @media (max-width: 900px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         /* Video Section */
         .video-section {
             background: rgba(255, 255, 255, 0.1);
@@ -123,16 +116,6 @@
             border: 3px solid var(--minion-yellow);
             position: relative;
             overflow: hidden;
-        }
-        
-        .section-title {
-            font-family: 'Fredoka One', cursive;
-            font-size: 2.5rem;
-            color: var(--minion-yellow);
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
         
         .video-container {
@@ -316,11 +299,6 @@
             .subtitle {
                 font-size: 1.5rem;
             }
-            
-            .control-btn {
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
         }
         
         @media (max-width: 480px) {
@@ -376,8 +354,6 @@
                 <h1 class="main-title">🎄 MERRY CHRISTMAS! 🎄</h1>
                 <div class="subtitle">🎆 & Happy New Year! 🎆</div>
             </div>
-            
-            <!-- <div class="santa-emoji">🎅🎅🎅🎅🎅</div> -->
         </header>
         
         <!-- Main Content -->
@@ -400,7 +376,7 @@
         // Create snowflakes - FIXED VERSION
         function createSnowflakes() {
             const snowflakesContainer = document.getElementById('snowflakes');
-            const snowflakeCount = 80; // Increased count for better effect
+            const snowflakeCount = 80;
             
             // Clear any existing snowflakes
             snowflakesContainer.innerHTML = '';
