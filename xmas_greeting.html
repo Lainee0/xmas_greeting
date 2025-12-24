@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎄 Happy Holidays! 🎄</title>
+    <title>Happy Holidays! 🎄</title>
+    <link rel="icon" href="assets/christmas-tree.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;900&family=Bangers&display=swap" rel="stylesheet">
     <style>
@@ -208,31 +209,28 @@
             }
         }
         
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        /* Watermark */
+        .watermark {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            z-index: 10;
+            text-align: right;
+            pointer-events: none;
+            animation: fadeIn 3s ease-in-out;
         }
         
-        .footer-text {
-            font-size: 1.5rem;
-            color: var(--minion-yellow);
+        .watermark-text {
             font-weight: 700;
-            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         
-        .minion-signature {
-            font-family: 'Bangers', cursive;
-            font-size: 2.5rem;
-            color: white;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, var(--minion-yellow), var(--christmas-green), var(--christmas-red));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
         
         /* Peeking Jose-Chan */
@@ -336,6 +334,12 @@
             .peeking-jose.right {
                 right: -25px;
             }
+            
+            .watermark {
+                font-size: 12px;
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -346,6 +350,11 @@
     <!-- Peeking Jose-Chan -->
     <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose left">
     <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose right">
+    
+    <!-- Watermark -->
+    <div class="watermark">
+        <div class="watermark-text">ee._.laine</div>
+    </div>
     
     <div class="container">
         <!-- Header -->
@@ -373,7 +382,7 @@
     </div>
 
     <script>
-        // Create snowflakes - FIXED VERSION
+        // Create snowflakes
         function createSnowflakes() {
             const snowflakesContainer = document.getElementById('snowflakes');
             const snowflakeCount = 80;
