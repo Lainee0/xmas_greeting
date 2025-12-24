@@ -224,6 +224,17 @@
             color: var(--minion-yellow);
             font-weight: 700;
             margin-bottom: 15px;
+            animation: fade 2.5s ease-in-out infinite;
+        }
+        
+        .float-text {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
         }
 
         /* Watermark */
@@ -251,7 +262,7 @@
         }
         
         /* Peeking Jose-Chan */
-        .peeking-jose {
+        /* .peeking-jose {
             position: fixed;
             bottom: 0;
             width: 100px;
@@ -303,7 +314,7 @@
                 opacity: 0;
                 transform: scaleX(-1) translateX(0) translateY(0);
             }
-        }
+        } */
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -340,7 +351,7 @@
                 border-radius: 12px;
             }
             
-            .peeking-jose {
+            /* .peeking-jose {
                 width: 60px;
             }
             
@@ -350,7 +361,7 @@
             
             .peeking-jose.right {
                 right: -25px;
-            }
+            } */
             
             .watermark {
                 font-size: 12px;
@@ -369,8 +380,8 @@
     <div class="snowflakes" id="snowflakes"></div>
     
     <!-- Peeking Jose-Chan -->
-    <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose left">
-    <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose right">
+    <!-- <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose left">
+    <img src="assets/jose-chan.png" alt="Jose-Chan" class="peeking-jose right"> -->
     
     <!-- Watermark -->
     <div class="watermark">
@@ -403,7 +414,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <div class="footer-text">
+            <div class="footer-text float-text">
                 Greetings from Jamero Family! ❤️‍🔥
             </div>
         </footer>
